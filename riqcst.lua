@@ -164,7 +164,7 @@ local spell = storage.stackar;
 local maxDistance = 7;
  
  
-Stack.icon = addIcon("Stack",  {item=802, text="Stack"}, macro(100, "Stack", function() 
+    macro(100, "Stack", function() 
     local furthestMonster = nil;
     local pattern = nil;
     if (modules.corelib.g_keyboard.areKeysPressed("numpad0+W")) then
