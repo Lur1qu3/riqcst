@@ -637,8 +637,6 @@ onTalk(function(name, level, mode, text, channelId, pos)
     end
 end);
 
-addIcon("Buff", {item=12617, text="Buff"},buffz)
-
 
 
 
