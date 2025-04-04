@@ -614,7 +614,7 @@ local configBuff = {
     cooldown = storage.buffzcd;
 }
 
-buffz = macro(100, "B U F F", function()
+buff = macro(100, "B U F F", function()
     if isInPz() then
         return;
     end
@@ -632,8 +632,6 @@ onTalk(function(name, level, mode, text, channelId, pos)
         configBuff.cooldownBuff = os.time() + configBuff.cooldown;
     end
 end);
-
-addIcon("Buff", {item=12617, text="Buff"},buffz)
 
 
 
