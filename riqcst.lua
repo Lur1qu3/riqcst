@@ -2308,7 +2308,6 @@ end,hpPanel4)
 
 addIcon("COMBO", {item=671, movable=true, text = "COMBO"}, percent)
 end
-end
 
 
 
