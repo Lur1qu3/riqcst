@@ -559,7 +559,7 @@ CheckBox
   id: blessCheck
   font: cipsoftFont
   text: Auto Bless
-  !tooltip: tr('Ativar para verificar bless no reload do bot.')
+  !tooltip: tr('Verificar Bless ao Relogar')
 ]])
 
 
