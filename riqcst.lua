@@ -1,4 +1,5 @@
 setDefaultTab("Main")
+UI.Separator()
 local version = " CUSTOM"
 local nick = "RIQUE".. version
 local Nome = UI.Label(nick)
@@ -164,7 +165,7 @@ local spell = storage.stackar;
 local maxDistance = 7;
  
  
-    Stack.icon = addIcon("Stack",  {item=802, text="Stack"}, macro(100, "Stack", function() 
+Stack.icon = addIcon("Stack",  {item=802, text="Stack"}, macro(100, "Stack", function() 
     local furthestMonster = nil;
     local pattern = nil;
     if (modules.corelib.g_keyboard.areKeysPressed("numpad0+W")) then
@@ -216,6 +217,8 @@ percent = macro(200, "COMBO", function()
   local distanciaa = 1
   combodistancia = g_game.getAttackingCreature()
   if getDistanceBetween(pos(),combodistancia:getPosition()) == distanciaa then
+  say(storage.rique, 1600)
+end
  say(storage.Magia2, 1600)
  say(storage.Magia3, 1600)
  say(storage.Magia4, 1600)
@@ -630,6 +633,8 @@ onTalk(function(name, level, mode, text, channelId, pos)
         configBuff.cooldownBuff = os.time() + configBuff.cooldown;
     end
 end);
+
+addIcon("Buff", {item=12617, text="Buff"},buffz)
 
 
 
@@ -2287,6 +2292,7 @@ color:setColor("green")
         color= UI.Label("Combos",hpPanel4)
 color:setColor("green")
 
+
 addTextEdit("Magia1", storage.Magia2 or "Magia1", function(widget, text) storage.Magia2 = text
 end,hpPanel4)
 
@@ -2307,6 +2313,7 @@ end,hpPanel4)
 
 
 addIcon("COMBO", {item=671, movable=true, text = "COMBO"}, percent)
+end
 end
 
 
