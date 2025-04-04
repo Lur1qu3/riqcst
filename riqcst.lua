@@ -212,16 +212,10 @@ end));
 
 
 percent = macro(200, "COMBO", function()
- if not g_game.isAttacking() then return end
- if g_game.getAttackingCreature():getHealthPercent() <= 30 then
-say(storage.Magia1, 1600)
- end
+ if g_game.isAttacking() then
   local distanciaa = 1
   combodistancia = g_game.getAttackingCreature()
   if getDistanceBetween(pos(),combodistancia:getPosition()) == distanciaa then
-  say(storage.rique, 1600)
-end
- if g_game.isAttacking() then
  say(storage.Magia2, 1600)
  say(storage.Magia3, 1600)
  say(storage.Magia4, 1600)
@@ -2292,9 +2286,6 @@ TabBar:addTab("Combo", hpPanel4)
 color:setColor("green")
         color= UI.Label("Combos",hpPanel4)
 color:setColor("green")
-
-addTextEdit("30%", storage.Magia1 or "30%", function(widget, text) storage.Magia1 = text
-end,hpPanel4)
 
 addTextEdit("Magia1", storage.Magia2 or "Magia1", function(widget, text) storage.Magia2 = text
 end,hpPanel4)
