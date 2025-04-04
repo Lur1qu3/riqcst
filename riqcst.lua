@@ -554,6 +554,35 @@ local riquescripts2 = addLabel("UTILIDADES", "UTILIDADES")
 riquescripts2:setColor("orange")
 
 
+blessCheckBox = setupUI([[
+CheckBox
+  id: blessCheck
+  font: cipsoftFont
+  text: Auto Bless
+  !tooltip: tr('Ativar para verificar bless no reload do bot.')
+]])
+
+
+if storage.blessCheck == nil then
+    storage.blessCheck = true
+end
+blessCheckBox:setChecked(storage.blessCheck)
+
+
+blessCheckBox.onCheckChange = function(widget, checked)
+    storage.blessCheck = checked
+end
+
+
+if storage.blessCheck and player:getBlessings() == 0 then
+    say("!bless")
+    schedule(2000, function()
+        if player:getBlessings() == 0 then
+            error("Bless Verificada!")
+        end
+    end)
+end
+
 
 
 
@@ -1252,15 +1281,6 @@ addIcon("Enemy", {item = 21979, text = "Enemy"}, Enemy)
 
 
 
-
-if player:getBlessings() == 0 then
-    say("!bless")
-    schedule(2000, function()
-        if player:getBlessings() == 0 then
-            error("Bless Verificada!")
-        end
-    end)
-end
 
 
 
