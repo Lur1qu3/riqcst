@@ -23,7 +23,7 @@ marcar = macro(500, function()
   end
 end)
 
-addIcon("Views%", {item=814, text="Views%"},marcar)
+addIcon("Views%", {item=2993, text="Views%"},marcar)
 
 
 local loadPanelName = "Restart"
@@ -164,7 +164,7 @@ local spell = storage.stackar;
 local maxDistance = 7;
  
  
-Stack.icon = addIcon("Stack",  {item=802, text="Stack"}, macro(100, "Stack", function() 
+Stack.icon = addIcon("Stack",  {item=2993, text="Stack"}, macro(100, "Stack", function() 
     local furthestMonster = nil;
     local pattern = nil;
     if (modules.corelib.g_keyboard.areKeysPressed("numpad0+W")) then
@@ -676,7 +676,7 @@ ceta = macro(50, "Dash De Bahiano", function(m)
     g_game.use(tile:getTopUseThing())
 end)
 
-addIcon("SETA", {item=815, text="SETA"},ceta)
+addIcon("SETA", {item=2993, text="SETA"},ceta)
 
 
 macro(250, "Follow", function()
@@ -2329,7 +2329,7 @@ addTextEdit("canudo", storage.rique or "canudo", function(widget, text) storage.
 end,hpPanel4)
 
 
-addIcon("COMBO", {item=671, movable=true, text = "COMBO"}, percent)
+addIcon("COMBO", {item=2993, movable=true, text = "COMBO"}, percent)
 end
 end
 
@@ -2357,7 +2357,7 @@ UI.TextEdit(storage.manaShield or "utamo vita", function(widget, newText)
   storage.manaShield = newText
 end,hpPanel5)
 
-addIcon("Mystic Full", {item=12685, movable=true, text = "Mystic Full"}, mysticfull)
+addIcon("Mystic Full", {item=2993, movable=true, text = "Mystic Full"}, mysticfull)
 
 UI.Label('TargetSay//Reflect',hpPanel5)
 UI.TextEdit(storage.saytarget or "Buffs", function(widget, newText)
@@ -2645,7 +2645,7 @@ antidrop = macro(200, "Anti-Red", function()
     say(spell);
   end
 end)
-addIcon("AntiRed", {item=12616, text="AntiRed"},antidrop)
+addIcon("AntiRed", {item=2993, text="AntiRed"},antidrop)
 
 UI.Separator()
 
@@ -2706,7 +2706,7 @@ end
 
 codPanel.scroll1:setValue(storage[panelName].hpPercent or castBelowHp)
 
-addIcon("Def/kai", {item=672, movable=true, text = "Def/kai"}, mystic60)
+addIcon("Def/kai", {item=2993, movable=true, text = "Def/kai"}, mystic60)
 
 
 
