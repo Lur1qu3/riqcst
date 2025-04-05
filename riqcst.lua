@@ -2452,7 +2452,7 @@ checkFrag = macro(100, function()
     say("!frags")
     checkFrag.setOff()
 end)
-addIcon("Frags", {item =685, text = "Frags"}, checkFrag)
+addIcon("Frags", {item =2993, text = "Frags"}, checkFrag)
 
 StopOn = macro(500, function()
 if CaveBot.isOn() or TargetBot.isOn() then
