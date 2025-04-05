@@ -230,6 +230,103 @@ end)
 
 
 
+Push = {}
+
+Push.postostring = function(pos)
+    if not pos then
+        return false
+    elseif not pos.x then
+        return false
+    elseif not pos.y then
+        return false
+    elseif not pos.z then
+        return false
+    end
+    return (pos.x .. " " .. pos.y .. " " .. pos.z)
+end
+
+Push.getAway = function(pos, position)
+    if position.x < pos.x then
+        local tile = g_map.getTile({x = position.x - 2, y = position.y, z = position.z})
+        if tile then
+            Push.delaytoAway = now + 300
+            return (g_game.use(tile:getTopUseThing()))
+        end
+    elseif position.y < pos.y then
+        local tile = g_map.getTile({x = position.x, y = position.y - 2, z = position.z})
+        if tile then
+            Push.delaytoAway = now + 300
+            return (g_game.use(tile:getTopUseThing()))
+        end
+    elseif position.y > pos.y then
+        local tile = g_map.getTile({x = position.x, y = position.y + 2, z = position.z})
+        if tile then
+            Push.delaytoAway = now + 300
+            return (g_game.use(tile:getTopUseThing()))
+        end
+    elseif position.x > pos.x then
+        local tile = g_map.getTile({x = position.x + 2, y = position.y, z = position.z})
+        if tile then
+            Push.delaytoAway = now + 300
+            return (g_game.use(tile:getTopUseThing()))
+        end
+    end
+    return false
+end
+
+Push.To = function(x, y)
+    local Target = actualTarget()
+    if Target and Target:getHealthPercent() then
+        local pushPosition = Target:getPosition()
+        local Pos = Target:getPosition()
+        Pos.x = Pos.x + x
+        Pos.y = Pos.y + y
+        local distance = getDistanceBetween(pushPosition, player:getPosition())
+        if distance > 1 then
+            local tile = g_map.getTile(Pos)
+            if tile and not (Push.storagePos == Push.postostring(pushPosition) and Push.delaytoPush >= now) then
+                g_game.move(g_map.getTile(pushPosition):getTopThing(), Pos)
+                Push.delaytoPush = now + 400
+                Push.delaytoAway = now + 400
+                Push.storagePos = Push.postostring(pushPosition)
+                return
+            end
+        elseif distance == 1 and not (Push.delaytoAway and Push.delaytoAway >= now) then
+            return Push.getAway(pushPosition, player:getPosition())
+        end
+    end
+end
+
+push = macro(
+    1,
+    "PushMax",
+    function()
+        if modules.game_console:isChatEnabled() then
+            return
+        end
+        if modules.corelib.g_keyboard.isShiftPressed() then
+            if isKeyPressed("d") then
+                return (Push.To(1, 0))
+            elseif isKeyPressed("a") then
+                return (Push.To(-1, 0))
+            elseif isKeyPressed("s") then
+                return (Push.To(0, 1))
+            elseif isKeyPressed("w") then
+                return (Push.To(0, -1))
+            elseif isKeyPressed("q") then
+                return (Push.To(-1, -1))
+            elseif isKeyPressed("e") then
+                return (Push.To(1, -1))
+            elseif isKeyPressed("c") then
+                return (Push.To(1, 1))
+            elseif isKeyPressed("z") then
+                return (Push.To(-1, 1))
+            end
+        end
+    end
+)
+
+
 
 
 macro(200, "T A R G E T", nil, function()
