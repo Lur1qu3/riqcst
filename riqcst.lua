@@ -1381,16 +1381,7 @@ addIcon("Enemy", {item = 21979, text = "Enemy"}, Enemy)
 
 
 
-onTextMessage(function(mode, text)
-        if not text:lower():find('2 golds') then return; end
-       say("VOCÊ ESTÁ SEM DINHEIRO PARA BOL")
-    end)
 
-
-onTextMessage(function(mode, text)
-        if not text:lower():find('de 5') then return; end
-       say("VOCê ESTÁ SEM DINHEIRO PARA BLESS")
-    end)
 
 
 -----------------------------------
