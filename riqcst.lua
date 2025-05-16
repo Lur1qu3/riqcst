@@ -5,7 +5,7 @@ local version = " CUSTOM"
 local nick = "RIQUE".. version
 local Nome = UI.Label(nick)
 
-modules.game_textmessage.displayGameMessage("["..nick.."] Bem Vindo A Custom RIQUE!")
+modules.game_textmessage.displayGameMessage("["..nick.."] Bem Vindo A Custom RIQUE!!")
 
 local cores = {"green", "red", "black", "green", "orange"}
 local cores2 = 0
@@ -17,15 +17,7 @@ end)
 
 UI.Separator()
 
-marcar = macro(500, function()
-  for i, spec in ipairs(getSpectators()) do
-    if spec then
-      spec:setText("\n" .. "\n" .. "\n" .. "\n" .. "\n" .. spec:getHealthPercent().."%")
-    end
-  end
-end)
 
-addIcon("Views%", {item=2993, text="Views%"},marcar)
 
 
 local loadPanelName = "Restart"
