@@ -1,5 +1,41 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 setDefaultTab("Main")
 local version = " CUSTOM"
 local nick = "RIQUE".. version
@@ -2831,6 +2867,18 @@ addTextEdit("Magia Stack", storage.stackar or "Magia Stack", function(widget, te
 storage.stackar = text
 end)
 UI.Separator()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
